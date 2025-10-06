@@ -1,0 +1,38 @@
+---
+alwaysApply: true
+description: Vue.js项目结构和配置指南
+---
+
+# Vue.js项目结构指南
+
+这是一个基于Vue 3 + Vite的个人主页项目，使用Composition API和TypeScript风格。
+
+## 项目结构
+- 主入口文件：[main.js](mdc:src/main.js)
+- 根组件：[App.vue](mdc:src/App.vue)
+- 主视图：[MainCard.vue](mdc:src/views/MainCard.vue)
+- 配置文件位于：[src/config/](mdc:src/config/)目录
+- 组件位于：[src/components/](mdc:src/components/)目录
+- 样式文件位于：[src/assets/css/](mdc:src/assets/css/)目录
+
+## 配置管理
+项目使用JSON配置文件管理数据：
+- [config.json](mdc:src/config/config.json) - 个人信息配置
+- [linkBtn.json](mdc:src/config/linkBtn.json) - 链接按钮配置
+- [techStack.json](mdc:src/config/techStack.json) - 技术栈配置
+- [typewriter.json](mdc:src/config/typewriter.json) - 打字机效果配置
+- [welcome.json](mdc:src/config/welcome.json) - 欢迎信息和人格类型配置
+- [blog.json](mdc:src/config/blog.json) - 博客订阅配置
+
+## 技术栈
+- Vue 3.5.18 (Composition API)
+- Vite 7.1.2
+- @iconify/vue 5.0.0 (图标库)
+- 原生CSS (无UI框架)
+
+## 开发规范
+- 使用Vue 3 Composition API
+- 组件使用`<script setup>`语法
+- 样式使用原生CSS，支持嵌套语法
+- 图标使用@iconify/vue库
+- 配置文件使用JSON格式

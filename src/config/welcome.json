@@ -1,0 +1,44 @@
+{
+  "locationLng": 120.15,
+  "locationLat": 30.33,
+  "welcomeEmoji": "👋",
+  "personality": {
+    "type": "INFP",
+    "name": "调停者",
+    "description": "并非所有的金子都会闪光，并非所有的流浪者都会迷失，年老而坚强的不会枯萎，深根不会被霜冻所触及。",
+    "dimensions": [
+      {
+        "left": "外向",
+        "right": "内向",
+        "leftPercent": 47,
+        "rightPercent": 53,
+        "leftColor": "#3B82F6",
+        "rightColor": "#60A5FA"
+      },
+      {
+        "left": "远见",
+        "right": "现实",
+        "leftPercent": 84,
+        "rightPercent": 16,
+        "leftColor": "#F59E0B",
+        "rightColor": "#FBBF24"
+      },
+      {
+        "left": "理性",
+        "right": "感受",
+        "leftPercent": 47,
+        "rightPercent": 53,
+        "leftColor": "#10B981",
+        "rightColor": "#34D399"
+      },
+      {
+        "left": "计划",
+        "right": "探索",
+        "leftPercent": 53,
+        "rightPercent": 47,
+        "leftColor": "#8B5CF6",
+        "rightColor": "#A78BFA"
+      }
+    ]
+  }
+}

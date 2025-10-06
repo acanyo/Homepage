@@ -1,0 +1,116 @@
+---
+globs: *.vue,*.js,*.css
+description: 图标和资源管理规范
+---
+
+# 图标和资源管理规范
+
+## 图标库使用
+项目使用[@iconify/vue](https://iconify.design/)作为图标库，提供丰富的图标选择。
+
+### 图标导入
+```javascript
+import { Icon } from "@iconify/vue";
+```
+
+### 图标使用
+```vue
+<template>
+  <Icon icon="图标名称" width="尺寸" height="尺寸" />
+</template>
+```
+
+## 图标命名规范
+- 使用kebab-case命名
+- 图标名称格式：`集合名:图标名`
+- 常用图标集合：
+  - `simple-icons` - 品牌图标
+  - `mdi` - Material Design Icons
+  - `logos` - 技术栈图标
+  - `fa7-solid` - Font Awesome 7 Solid
+  - `carbon` - IBM Carbon Icons
+  - `ph` - Phosphor Icons
+
+## 图标尺寸规范
+- 小图标：16px x 16px（用于按钮、标签）
+- 中等图标：20px x 20px（用于列表项、状态指示）
+- 大图标：40px x 40px（用于技术栈展示）
+- 超大图标：48px x 48px（用于主要功能区域）
+
+## 图标使用场景
+
+### 技术栈图标
+```vue
+<Icon :icon="i.icon" width="40" height="40" />
+```
+- 使用logos集合
+- 统一40px尺寸
+- 配合data-name属性显示工具提示
+
+### 联系信息图标
+```vue
+<Icon icon="mdi:github" width="16" height="16" />
+```
+- 使用mdi或fa7-solid集合
+- 16px尺寸
+- 与文字对齐
+
+### 功能按钮图标
+```vue
+<Icon icon="carbon:quotes" width="16" height="16" />
+```
+- 使用carbon或ph集合
+- 16px尺寸
+- 用于装饰性元素
+
+## 资源文件管理
+
+### 静态资源
+- 图片资源存放在`public/`目录
+- 使用相对路径引用
+- 优化图片大小和格式
+- 支持WebP格式（如果浏览器支持）
+
+### 样式资源
+- CSS文件存放在`src/assets/css/`目录
+- 使用@import引入
+- 支持CSS变量和嵌套语法
+- 按功能模块分离样式文件
+
+### 字体资源
+- 使用系统字体栈
+- 避免引入外部字体文件
+- 优先使用Web安全字体
+
+## 图标优化建议
+
+### 性能优化
+- 按需加载图标
+- 使用SVG格式图标
+- 避免重复加载相同图标
+- 利用浏览器缓存
+
+### 可访问性
+- 为图标添加alt属性或aria-label
+- 确保图标有足够的对比度
+- 提供文字替代方案
+- 支持键盘导航
+
+### 响应式设计
+- 图标尺寸使用相对单位
+- 在不同屏幕尺寸下保持清晰
+- 考虑高DPI屏幕显示
+- 使用CSS媒体查询调整图标大小
+
+## 图标选择指南
+- 选择与项目风格一致的图标
+- 优先使用开源图标集
+- 避免混用不同风格的图标
+- 保持图标的视觉一致性
+- 考虑图标的语义化含义
+
+## 常见问题解决
+- 图标不显示：检查图标名称是否正确
+- 图标模糊：确认尺寸设置合理
+- 图标颜色：使用CSS控制图标颜色
+- 图标对齐：使用flexbox或grid布局

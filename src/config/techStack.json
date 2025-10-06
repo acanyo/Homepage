@@ -1,48 +1,48 @@
 {
   "techStack": [
     {
-      "icon": "vscode-icons:file-type-html",
-      "name": "HTML"
+      "icon": "logos:java",
+      "name": "Java"
     },
     {
-      "icon": "devicon:css3",
-      "name": "CSS"
+      "icon": "logos:spring",
+      "name": "Spring"
     },
     {
-      "icon": "vscode-icons:file-type-light-js",
-      "name": "JavaScript"
-    },
-    {
-      "icon": "catppuccin:markdown-mdx",
-      "name": "Markdown"
-    },
-    {
-      "icon": "logos:mysql",
-      "name": "MySql"
-    },
-    {
-      "icon": "logos:php",
-      "name": "PHP"
-    },
-    {
-      "icon": "material-icon-theme:python",
-      "name": "Python"
-    },
-    {
-      "icon": "material-icon-theme:vue",
+      "icon": "logos:vue",
       "name": "Vue"
     },
     {
-      "icon": "skill-icons:jquery",
-      "name": "Jquery"
+      "icon": "logos:mysql",
+      "name": "MySQL"
     },
     {
-      "icon": "skill-icons:photoshop",
-      "name": "PhotoShop"
+      "icon": "logos:redis",
+      "name": "Redis"
     },
     {
-      "icon": "devicon:xd",
-      "name": "XD"
+      "icon": "logos:oracle",
+      "name": "Oracle"
+    },
+    {
+      "icon": "logos:docker",
+      "name": "Docker"
+    },
+    {
+      "icon": "logos:nodejs",
+      "name": "Node.js"
+    },
+    {
+      "icon": "logos:nginx",
+      "name": "Nginx"
+    },
+    {
+      "icon": "logos:git",
+      "name": "Git"
+    },
+    {
+      "icon": "logos:javascript",
+      "name": "JavaScript"
     }
   ]
 }

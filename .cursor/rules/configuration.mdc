@@ -1,0 +1,99 @@
+---
+globs: src/config/*.json
+description: 配置文件管理规范
+---
+
+# 配置文件管理规范
+
+## 配置文件组织
+所有配置文件统一存放在[src/config/](mdc:src/config/)目录下，使用JSON格式存储。
+
+## 配置文件说明
+
+### 个人信息配置
+- 文件：[config.json](mdc:src/config/config.json)
+- 用途：存储个人基本信息、联系方式、职业信息
+- 结构：
+  ```json
+  {
+    "name": "姓名",
+    "zodiac": "星座",
+    "avatarUrl": "头像URL",
+    "emjoi": "表情符号",
+    "contactInfo": {
+      "qq": "QQ号",
+      "github": "GitHub链接",
+      "email": "邮箱",
+      "blog": "博客链接"
+    },
+    "professions": ["职业1", "职业2"]
+  }
+  ```
+
+### 技术栈配置
+- 文件：[techStack.json](mdc:src/config/techStack.json)
+- 用途：管理技术栈图标和名称
+- 结构：
+  ```json
+  {
+    "techStack": [
+      {
+        "icon": "图标名称",
+        "name": "技术名称"
+      }
+    ]
+  }
+  ```
+
+### 打字机效果配置
+- 文件：[typewriter.json](mdc:src/config/typewriter.json)
+- 用途：配置打字机效果显示的文本数组
+- 结构：字符串数组
+
+### 欢迎信息配置
+- 文件：[welcome.json](mdc:src/config/welcome.json)
+- 用途：配置欢迎信息、位置信息和人格类型
+- 包含：位置坐标、欢迎表情、MBTI人格类型数据
+
+### 博客配置
+- 文件：[blog.json](mdc:src/config/blog.json)
+- 用途：配置博客RSS订阅相关参数
+- 包含：API地址、Token、RSS链接、最大文章数
+
+### 链接按钮配置
+- 文件：[linkBtn.json](mdc:src/config/linkBtn.json)
+- 用途：配置页面中的链接按钮
+- 结构：按钮数组，包含名称、链接、图标等
+
+## 配置使用规范
+
+### 导入配置
+```javascript
+import config from "../config/config.json";
+import techStack from "../config/techStack.json";
+```
+
+### 配置验证
+- 确保JSON格式正确
+- 验证必需字段存在
+- 提供默认值处理
+- 添加错误处理机制
+
+### 配置更新
+- 修改配置后需要重启开发服务器
+- 生产环境配置需要重新构建
+- 敏感信息不要硬编码在配置文件中
+- 使用环境变量管理不同环境的配置
+
+### 配置安全
+- 不要在配置文件中存储敏感信息
+- 使用相对路径引用资源
+- 验证外部链接的安全性
+- 定期检查和更新配置内容
+
+## 最佳实践
+- 保持配置文件结构简洁清晰
+- 使用有意义的字段名
+- 添加注释说明复杂配置项
+- 定期备份配置文件
+- 版本控制跟踪配置变更

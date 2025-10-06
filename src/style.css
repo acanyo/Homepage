@@ -4,9 +4,9 @@
 
 :root {
   /* 背景颜色 */
-  --background: #d0e8ff;
+  --background: #e6f3ff;
   /* 主题颜色 */
-  --theme-color: #ffb3b3;
+  --theme-color: #4fc3f7;
   /* 文字颜色 */
   --text-color: #000;
   /* 卡片背景颜色 */
@@ -23,13 +23,13 @@
 
 [theme='dark'] {
   /* 背景颜色 */
-  --background: #222222;
+  --background: #1a2332;
   /* 文字颜色 */
   --text-color: #fff;
   /* 卡片背景颜色 */
-  --card-background: #292929;
+  --card-background: #2a3441;
   /* 卡片边框颜色 */
-  --card-border-color: #444444;
+  --card-border-color: #3a4a5c;
   /* 技术栈背景颜色 */
   --techItem-background: transparent;
   /* 加载动画背景颜色 */

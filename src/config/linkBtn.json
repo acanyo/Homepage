@@ -1,34 +1,34 @@
 {
   "linkBtn": [
     {
-      "icon": "fa7-solid:blog",
-      "text": "博客",
-      "color": "#ffb3b3",
-      "url": "https://blog.quenan.cn/"
-    },
-    {
       "icon": "mdi:github",
       "text": "Github",
       "color": "#2b2b2b",
-      "url": "https://github.com/QNquenan"
+      "url": "https://github.com/yourusername"
     },
     {
       "icon": "mingcute:bilibili-line",
       "text": "哔哩哔哩",
       "color": "#0BA7D4",
-      "url": "https://space.bilibili.com/495882959"
+      "url": "https://space.bilibili.com/yourid"
     },
     {
       "icon": "line-md:email",
       "text": "邮箱",
       "color": "#FDB34F",
-      "url": "mailto:qn2987271942@outlook.com"
+      "url": "mailto:your.email@example.com"
     },
     {
       "icon": "tabler:brand-netease-music",
       "text": "网易云",
       "color": "#DC1555",
-      "url": "https://music.163.com/#/playlist?id=2696501847&creatorId=1785635020"
+      "url": "https://music.163.com/#/playlist?id=yourplaylist"
+    },
+    {
+      "icon": "mdi:account-heart",
+      "text": "16Personalities",
+      "color": "#6366F1",
+      "url": "https://www.16personalities.com/ch"
     }
   ]
 }

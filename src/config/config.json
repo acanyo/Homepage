@@ -1,13 +1,13 @@
 {
-  "name": "鹊楠",
-  "age": "06",
-  "zodiac": "天蝎座♏",
-  "avatarUrl": "https://i.p-i.vip/43/20240913-66e403f2331ec.webp",
+  "name": "Handsome",
+  "zodiac": "水瓶座♒",
+  "avatarUrl": "http://q.qlogo.cn/headimg_dl?dst_uin=30819792&spec=640&img_type=jpg",
   "emjoi": "😋",
-  "infoTags": {
-    "sex": "男",
-    "school": "惠州城市职业学校",
-    "province": "广东省"
+  "contactInfo": {
+    "qq": "30819792",
+    "github": "https://github.com/acanyo",
+    "email": "admin@lik.cc",
+    "blog": "https://www.lik.cc"
   },
-  "professions": ["学生", "前端入门者", "后端初学者"]
+  "professions": ["Java开发者", "开源爱好者", "技术博主"]
 }

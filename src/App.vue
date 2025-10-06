@@ -1,18 +1,38 @@
 <template>
+  <div class="wallpaper-background" v-if="wallpaperConfig.enabled">
+    <!-- 图片背景 -->
+    <img 
+      v-if="wallpaperConfig.type === 'image'" 
+      :src="wallpaperConfig.url" 
+      alt="Background" 
+      class="wallpaper-image" 
+    />
+    <!-- 视频背景 -->
+    <video 
+      v-if="wallpaperConfig.type === 'video'"
+      :src="wallpaperConfig.url"
+      class="wallpaper-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    />
+    <div class="wallpaper-overlay" :style="{ opacity: wallpaperConfig.opacity }"></div>
+  </div>
   <Transition name="fade" appear>
     <Loading v-if="showLoading" />
   </Transition>
   <main>
     <main-card></main-card>
   </main>
-  <div class="reThemeBtn" @click="changeTheme">
-    {{ theme == "light" ? "🔆" : "🌙" }}
+  <div class="reThemeBtn" :data-theme="theme" @click="changeTheme" :title="theme === 'light' ? '切换到暗色模式' : '切换到亮色模式'">
   </div>
 </template>
 
 <script setup>
 import MainCard from "./views/MainCard.vue";
 import Loading from "./components/Loading.vue";
+import wallpaperConfig from "./config/wallpaper.json";
 import { onMounted, ref } from "vue";
 
 let theme = ref(localStorage.getItem("theme") || "light");
@@ -36,7 +56,6 @@ const changeTheme = () => {
     onTheme("light");
   }
 
-  console.log(theme.value);
 };
 
 const onTheme = (theme) => {

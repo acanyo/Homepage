@@ -1,0 +1,6 @@
+{
+  "rssUrl": "https://www.lik.cc/rss.xml",
+  "apiUrl": "https://api.istero.com/resource/v1/rss/to/json",
+  "token": "ieBSPnfIpzwpoeuXRPxUzmhOLyKvFEVj",
+  "maxArticles": 6
+}

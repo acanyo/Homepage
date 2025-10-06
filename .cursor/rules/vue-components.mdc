@@ -1,0 +1,72 @@
+---
+globs: *.vue
+description: Vue组件开发规范和最佳实践
+---
+
+# Vue组件开发规范
+
+## 组件结构
+- 使用Vue 3 Composition API
+- 组件使用`<script setup>`语法糖
+- 模板、脚本、样式按顺序排列
+- 单文件组件（SFC）结构清晰
+
+## 组件命名
+- 组件文件名使用PascalCase（如：MainCard.vue）
+- 组件注册时使用kebab-case（如：main-card）
+- 组件名应该具有描述性和语义化
+
+## Composition API使用
+- 优先使用`<script setup>`语法
+- 使用`ref()`和`reactive()`管理响应式数据
+- 使用`computed()`创建计算属性
+- 使用`onMounted()`、`onUnmounted()`等生命周期钩子
+- 使用`watch()`和`watchEffect()`监听数据变化
+
+## 组件通信
+- 父传子：使用props定义接口
+- 子传父：使用emit定义事件
+- 跨组件：使用provide/inject或状态管理
+- 避免直接修改props，使用emit通知父组件
+
+## 响应式数据管理
+- 基本类型使用`ref()`
+- 对象和数组使用`reactive()`
+- 解构响应式对象时使用`toRefs()`
+- 避免在模板中直接解构响应式对象
+
+## 事件处理
+- 事件名使用kebab-case
+- 使用箭头函数或方法引用
+- 避免在模板中写复杂逻辑
+- 使用事件修饰符（.prevent, .stop等）
+
+## 样式作用域
+- 组件样式使用scoped避免污染
+- 全局样式放在单独的CSS文件中
+- 使用CSS变量进行主题管理
+- 避免使用深度选择器（::v-deep）
+
+## 组件复用
+- 提取可复用的逻辑到composables
+- 使用插槽（slot）提供灵活性
+- 组件应该单一职责
+- 避免过度抽象
+
+## 性能优化
+- 使用`v-memo`优化列表渲染
+- 合理使用`v-show`和`v-if`
+- 避免在模板中使用复杂计算
+- 使用`defineAsyncComponent`进行懒加载
+
+## 类型安全
+- 为props定义类型
+- 为emit事件定义类型
+- 使用TypeScript增强类型安全
+- 为复杂对象定义接口
+
+## 组件文档
+- 为组件添加注释说明
+- 为props和events添加描述
+- 提供使用示例
+- 记录组件的依赖关系

@@ -1,0 +1,237 @@
+---
+globs: *.vue,*.js,*.test.js,*.spec.js
+description: 测试规范和最佳实践
+---
+
+# 测试规范和最佳实践
+
+## 测试框架选择
+- 单元测试：Vitest（推荐）或Jest
+- 组件测试：@vue/test-utils
+- E2E测试：Playwright或Cypress
+- 测试覆盖率：c8或nyc
+
+## 测试文件组织
+```
+src/
+├── components/
+│   ├── Loading.vue
+│   ├── Loading.test.js
+│   ├── Typewriter.vue
+│   └── Typewriter.test.js
+├── views/
+│   ├── MainCard.vue
+│   └── MainCard.test.js
+└── __tests__/
+    ├── setup.js
+    └── utils/
+```
+
+## 单元测试规范
+
+### 组件测试
+```javascript
+import { mount } from '@vue/test-utils'
+import { describe, it, expect } from 'vitest'
+import Loading from '../Loading.vue'
+
+describe('Loading', () => {
+  it('renders correctly', () => {
+    const wrapper = mount(Loading)
+    expect(wrapper.exists()).toBe(true)
+  })
+})
+```
+
+### 测试用例结构
+- 使用`describe`组织测试套件
+- 使用`it`或`test`定义测试用例
+- 使用`beforeEach`和`afterEach`设置测试环境
+- 使用`expect`进行断言
+
+### 测试命名规范
+- 测试文件：`ComponentName.test.js`
+- 测试套件：`ComponentName`
+- 测试用例：`should do something when condition`
+- 使用描述性的测试名称
+
+## 组件测试最佳实践
+
+### 测试组件渲染
+```javascript
+it('renders with correct props', () => {
+  const wrapper = mount(Component, {
+    props: { title: 'Test Title' }
+  })
+  expect(wrapper.text()).toContain('Test Title')
+})
+```
+
+### 测试用户交互
+```javascript
+it('emits event when clicked', async () => {
+  const wrapper = mount(Component)
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.emitted('click')).toBeTruthy()
+})
+```
+
+### 测试计算属性
+```javascript
+it('computes correct value', () => {
+  const wrapper = mount(Component, {
+    props: { items: [1, 2, 3] }
+  })
+  expect(wrapper.vm.computedValue).toBe(6)
+})
+```
+
+### 测试生命周期
+```javascript
+it('calls onMounted hook', () => {
+  const onMountedSpy = vi.fn()
+  mount(Component, {
+    global: {
+      mocks: { onMounted: onMountedSpy }
+    }
+  })
+  expect(onMountedSpy).toHaveBeenCalled()
+})
+```
+
+## 异步测试
+
+### 测试异步操作
+```javascript
+it('handles async data loading', async () => {
+  const wrapper = mount(Component)
+  await wrapper.vm.loadData()
+  expect(wrapper.vm.data).toBeDefined()
+})
+```
+
+### 测试API调用
+```javascript
+it('fetches data from API', async () => {
+  const mockFetch = vi.fn().mockResolvedValue({ data: 'test' })
+  global.fetch = mockFetch
+  
+  const wrapper = mount(Component)
+  await wrapper.vm.fetchData()
+  
+  expect(mockFetch).toHaveBeenCalledWith('/api/data')
+  expect(wrapper.vm.data).toBe('test')
+})
+```
+
+## 测试工具和辅助函数
+
+### 测试工具函数
+```javascript
+// test-utils.js
+export function createWrapper(component, options = {}) {
+  return mount(component, {
+    global: {
+      stubs: ['router-link', 'router-view'],
+      mocks: {
+        $route: { params: {} },
+        $router: { push: vi.fn() }
+      }
+    },
+    ...options
+  })
+}
+```
+
+### Mock和Stub
+```javascript
+// Mock外部依赖
+vi.mock('@iconify/vue', () => ({
+  Icon: { name: 'Icon', template: '<div>Mock Icon</div>' }
+}))
+
+// Stub子组件
+const wrapper = mount(Parent, {
+  global: {
+    stubs: ['ChildComponent']
+  }
+})
+```
+
+## E2E测试
+
+### 页面测试
+```javascript
+// e2e/main.spec.js
+import { test, expect } from '@playwright/test'
+
+test('homepage loads correctly', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('h1')).toContainText('Hi, I\'m')
+})
+```
+
+### 用户流程测试
+```javascript
+test('theme toggle works', async ({ page }) => {
+  await page.goto('/')
+  await page.click('.reThemeBtn')
+  await expect(page.locator('body')).toHaveAttribute('theme', 'dark')
+})
+```
+
+## 测试覆盖率
+
+### 覆盖率配置
+```javascript
+// vitest.config.js
+export default {
+  test: {
+    coverage: {
+      provider: 'c8',
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'dist/']
+    }
+  }
+}
+```
+
+### 覆盖率目标
+- 语句覆盖率：> 80%
+- 分支覆盖率：> 70%
+- 函数覆盖率：> 80%
+- 行覆盖率：> 80%
+
+## 测试最佳实践
+
+### 测试原则
+- 测试应该独立且可重复
+- 测试应该快速执行
+- 测试应该易于理解和维护
+- 测试应该覆盖关键业务逻辑
+
+### 测试策略
+- 优先测试用户可见的功能
+- 测试边界条件和错误情况
+- 避免测试实现细节
+- 保持测试的简洁性
+
+### 持续集成
+- 在CI/CD中运行测试
+- 测试失败时阻止部署
+- 生成测试报告
+- 监控测试性能
+
+## 调试测试
+
+### 调试技巧
+- 使用`console.log`输出调试信息
+- 使用`wrapper.html()`查看渲染结果
+- 使用`wrapper.vm`访问组件实例
+- 使用浏览器开发者工具调试E2E测试
+
+### 常见问题
+- 异步操作需要等待
+- Mock和Stub配置错误
+- 测试环境设置问题
+- 组件依赖注入问题

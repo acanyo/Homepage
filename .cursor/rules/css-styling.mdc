@@ -1,0 +1,63 @@
+---
+globs: *.css,*.vue
+description: CSS样式编写规范
+---
+
+# CSS样式编写规范
+
+## 样式文件组织
+- 全局样式：[style.css](mdc:src/style.css)
+- 应用样式：[App.css](mdc:src/assets/css/App.css)
+- 主卡片样式：[MainCard.css](mdc:src/assets/css/MainCard.css)
+
+## CSS编写规范
+- 使用原生CSS，支持嵌套语法（&选择器）
+- 类名使用kebab-case命名
+- 使用CSS自定义属性（变量）进行主题管理
+- 优先使用flexbox布局
+- 使用rem单位进行响应式设计
+
+## 主题系统
+项目支持明暗主题切换：
+- 使用`[theme="light"]`和`[theme="dark"]`属性
+- 主题变量定义在CSS中
+- 通过JavaScript动态切换主题
+
+## 响应式设计
+- 移动端优先设计
+- 使用相对单位（rem, em, %）
+- 避免固定像素值
+- 使用媒体查询处理特殊断点
+
+## 动画效果
+- 使用CSS transition进行平滑过渡
+- 使用Vue的Transition组件处理组件切换
+- 动画时长控制在0.3s以内
+- 使用cubic-bezier缓动函数优化动画效果
+- 关键帧动画使用@keyframes定义
+- 悬停效果使用transform和box-shadow
+
+## 卡片设计系统
+- 统一使用16px圆角（border-radius: 16px）
+- 卡片边框使用3px实线边框
+- 卡片背景使用半透明效果（rgba或hsla）
+- 卡片间距统一使用1rem
+- 卡片悬停效果：translateY(-5px) + 阴影
+
+## 进度条设计
+- 高度统一为5px或12px
+- 使用渐变或主题色填充
+- 支持动画过渡效果
+- 圆角处理保持一致性
+
+## 技术栈图标
+- 图标尺寸统一为48px x 48px
+- 使用data-name属性存储工具提示
+- 悬停时显示工具提示动画
+- 图标容器使用12px圆角
+
+## 响应式断点
+- 移动端：max-width: 768px
+- 平板端：768px - 1024px
+- 桌面端：1024px+
+- 使用flexbox进行布局适配
